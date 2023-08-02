@@ -7,5 +7,52 @@
 }
 
 body {
-  // font-family: 'HK Grotesk', sans-serif;
+  font-family: 'HK Grotesk', sans-serif;
+}
+
+.container {
+  max-width: 1064px;
+  margin: 0 auto;
+}
+
+// button
+.btn {
+  color: $white;
+  font-size: $text-sm;
+  background-color: $light-red;
+
+  border: none;
+  padding: 11px 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: 200ms ease;
+
+  &:hover {
+    background-color: $dark-red;
+  }
+
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.section-space {
+  padding-top: 33px;
+}
+
+// CUSTOM SCROLL-BAR
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d22027;
+  // border-radius: 10px;
 }

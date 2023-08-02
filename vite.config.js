@@ -4,6 +4,7 @@ import path from 'path'
 
 // Define your aliases here
 const aliases = {
+  '@assets': '/src/assets',
   '@components': '/src/components',
   '@utils': '/src/utils',
   '@styles': '/src/styles'

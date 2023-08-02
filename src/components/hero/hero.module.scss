@@ -1,0 +1,25 @@
+// @import url('@styles/variables.scss');
+
+.hero {
+  height: 100dvh;
+
+  display: flex;
+  align-items: center;
+
+  .hero_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+
+    .hero_heading {
+      & h1 {
+        line-height: 66px;
+        div {
+          span {
+            color: $light-red;
+          }
+        }
+      }
+    }
+  }
+}
