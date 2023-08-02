@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('/fonts/HKGrotesk-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('/fonts/HKGrotesk-Medium.otf') format('opentype');
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('/fonts/HKGrotesk-SemiBold.otf') format('opentype');
+  font-weight: semi-bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('/fonts/HKGrotesk-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 60px;
+  color: $off-black;
+  font-weight: medium;
+}
+
+p {
+  font-size: $base;
+  line-height: 26px;
+}
