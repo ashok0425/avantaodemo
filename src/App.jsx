@@ -4,6 +4,7 @@ import NavHeader from '@components/nav/NavHeader.jsx'
 
 import HomePage from './pages/HomePage'
 import AboutUs from './pages/AboutUs'
+import Footer from './components/footer/Footer'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/about' element={<AboutUs />} />
       </Routes>
+      <Footer />
     </>
   )
 }

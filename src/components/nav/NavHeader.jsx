@@ -5,8 +5,8 @@ import styles from './nav.module.scss'
 const NavHeader = () => {
   return (
     <>
-      <nav className='container'>
-        <div className={styles.nav_container}>
+      <nav className={styles.nav_container}>
+        <div className='container'>
           <div className={styles.nav_wrapper}>
             <div className={styles.logo}>
               <img src='/logo.svg' />

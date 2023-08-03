@@ -1,5 +1,10 @@
 .nav_container {
   position: absolute;
+  max-width: 1066px;
+  width: 100%;
+  margin: 0 auto;
+  // left: 0;
+  // right: 0;
 
   .nav_wrapper {
     width: 100%;

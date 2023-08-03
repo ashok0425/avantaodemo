@@ -9,18 +9,31 @@ import styles from './card.module.scss'
 const Card = ({ title, description }) => {
   return (
     <>
-      <div className={styles.product_container}>
-        <div className={styles.product_video}></div>
-        <div className={styles.product_details}>
-          <div className={styles.product_content}>
-            <h1>{title}</h1>
-            <p>{description}</p>
-            <Link to='/'>
-              <span>Visit now</span>
-              <RightChevron color='#D22027' />
-            </Link>
-            <Button>view all</Button>
+      <div className={styles.product_grid}>
+        <div className={styles.product_thumb}>
+          <div className={styles.product_assets}>
+            <div className={styles.product_assets_wrapper}>
+              <img
+                src='/images/video.png'
+                alt=''
+                className={styles.product_image}
+              />
+            </div>
           </div>
+        </div>
+
+        <div className={styles.product_content}>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <Link to='/'>
+            <span>
+              <label>Visit now</label>
+              <span>
+                <RightChevron color='#D22027' />
+              </span>
+            </span>
+          </Link>
+          <Button>View all</Button>
         </div>
       </div>
     </>
