@@ -31,7 +31,7 @@ const ServicesSection = () => {
 
         <div className={styles.services_wrapper}>
           {data.map(({ id, title, description }) => (
-            <React.Fragment key={id}>
+            <React.Fragment key={`${title}-${id}`}>
               <Card title={title} description={description} />
             </React.Fragment>
           ))}

@@ -25,7 +25,7 @@ const HeadingFadeIn = ({ children, wordClass = '' }) => {
         scrollTrigger: {
           trigger: componentRef.current,
           toggleActions: 'play none none reset',
-          start: 'top bottom',
+          start: 'top center+=150px',
           end: '100% top',
           markers: false
         }

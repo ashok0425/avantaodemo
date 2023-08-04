@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import Button from '../Button'
 import { RightChevron } from '../../assets/Icons'
 
 import styles from './card.module.scss'
 import HeadingFadeIn from '../../utils/HeadingFadeIn'
+import { useIsomorphicLayoutEffect } from '../../utils/IsomorphicLayout'
 
 const Card = ({ title, description }) => {
+  const containerRef = useRef(null)
+
+  useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    if (typeof window !== 'undefined') {
+      const ctx = gsap.context(() => {})
+
+      return () => ctx.revert()
+    }
+  }, [])
   return (
     <>
-      <div className={styles.product_grid}>
+      <div ref={containerRef} className={styles.product_grid}>
         <div
           // data-scroll
           // data-scroll-speed={0.02}
