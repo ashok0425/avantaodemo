@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './products.module.scss'
 
 import Card from '../card/Card'
+import HeadingFadeIn from '../../utils/HeadingFadeIn'
 
 const ProductsSection = () => {
   const data = [
@@ -23,7 +24,9 @@ const ProductsSection = () => {
   return (
     <section className={`section-space ${styles.product_section}`}>
       <div className='container'>
-        <h1 className='section-headline'>Products</h1>
+        <HeadingFadeIn>
+          <h1 className='section-headline'>Products</h1>
+        </HeadingFadeIn>
       </div>
 
       <div className={styles.products_wrapper}>

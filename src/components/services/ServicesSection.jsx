@@ -2,6 +2,7 @@ import React from 'react'
 
 import styles from './services.module.scss'
 import Card from '../card/Card'
+import HeadingFadeIn from '../../utils/HeadingFadeIn'
 
 const ServicesSection = () => {
   const data = [
@@ -23,7 +24,9 @@ const ServicesSection = () => {
     <>
       <section className={styles.service_section}>
         <div className='container'>
-          <h1 className='section-headline'>Services</h1>
+          <HeadingFadeIn>
+            <h1 className='section-headline'>Services</h1>
+          </HeadingFadeIn>
         </div>
 
         <div className={styles.services_wrapper}>

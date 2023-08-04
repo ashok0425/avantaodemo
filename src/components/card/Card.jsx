@@ -5,12 +5,17 @@ import Button from '../Button'
 import { RightChevron } from '../../assets/Icons'
 
 import styles from './card.module.scss'
+import HeadingFadeIn from '../../utils/HeadingFadeIn'
 
 const Card = ({ title, description }) => {
   return (
     <>
       <div className={styles.product_grid}>
-        <div className={styles.product_thumb}>
+        <div
+          // data-scroll
+          // data-scroll-speed={0.02}
+          className={styles.product_thumb}
+        >
           <div className={styles.product_assets}>
             <div className={styles.product_assets_wrapper}>
               <img
@@ -22,8 +27,14 @@ const Card = ({ title, description }) => {
           </div>
         </div>
 
-        <div className={styles.product_content}>
-          <h1>{title}</h1>
+        <div
+          data-scroll
+          data-scroll-speed={0.1}
+          className={styles.product_content}
+        >
+          <HeadingFadeIn>
+            <h1>{title}</h1>
+          </HeadingFadeIn>
           <p>{description}</p>
           <Link to='/'>
             <span>
