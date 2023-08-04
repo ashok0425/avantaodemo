@@ -5,61 +5,153 @@
     content: '';
     background-color: $off-black;
     position: absolute;
-    width: 100%;
+    width: 50%;
     height: 100%;
     left: -99px;
+    z-index: -1;
   }
 
-  .footer_grid {
-    background-color: $off-black;
-    margin-top: 213px;
-    padding-top: 127px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 3fr;
+  .top {
+    position: absolute;
+    right: 80px;
+    bottom: 120px;
 
-    .logo {
-      width: 130px;
-      height: 33px;
+    & button {
+      font-size: 16px;
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .footer_container {
+    background-color: $off-black;
+    padding-right: 87px;
+    max-width: 1064px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    @media (max-width: 640px) {
+      padding: 0 20px;
     }
 
-    .quick_links {
-      & ul {
-        list-style: none;
+    @media (max-width: 1024px) {
+      padding: 0 40px;
+    }
 
-        & li {
+    .footer_grid {
+      margin-top: 213px;
+      padding-top: 127px;
+      padding-bottom: 85px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 3fr;
+
+      .logo {
+        width: 130px;
+        height: 33px;
+      }
+
+      .quick_links {
+        & ul {
+          list-style: none;
+
+          & li {
+            color: $white;
+            font-size: 22px;
+            line-height: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .company_detail {
+        .locations {
+          & h4 {
+            color: $white;
+            font-size: 22px;
+            line-height: 27px;
+            font-weight: medium;
+          }
+          .location_grid {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 66px;
+            row-gap: 30px;
+
+            .location_detail {
+              color: $white;
+
+              & h5 {
+                font-size: 16px;
+                line-height: 19px;
+                margin-bottom: 6px;
+              }
+
+              & p {
+                color: $white;
+                font-size: 14px;
+                line-height: 17px;
+              }
+            }
+          }
+        }
+
+        .contact {
           color: $white;
-          font-size: 22px;
-          line-height: 20px;
-          font-weight: 400;
-          margin-top: 15px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: 30px;
+          column-gap: 66px;
+          row-gap: 30px;
+
+          .email,
+          .call,
+          .social_media {
+            & h4 {
+              font-size: 22px;
+              line-height: 27px;
+            }
+
+            & a {
+              color: $white;
+              margin-top: 6px;
+            }
+          }
         }
       }
     }
 
-    .locations {
-      & h4 {
-        color: $white;
-        font-size: 22px;
-        line-height: 27px;
-      }
-      .location_grid {
-        margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 66px;
-        row-gap: 30px;
+    .lower_footer {
+      padding-bottom: 34px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
 
-        .location_detail {
+      .extra_links {
+        grid-area: span 2 / span 2;
+        display: flex;
+        gap: 48px;
+
+        & a {
           color: $white;
+          opacity: 50%;
+          font-size: 12px;
+          transition: 200ms ease;
+          will-change: opacity;
 
-          & h5 {
-            font-size: 16px;
-            line-height: 19px;
+          &:hover {
+            opacity: 100%;
           }
+        }
+      }
 
-          & p {
-            color: $white;
-          }
+      .copyright {
+        grid-area: span 3 / span 3;
+
+        & p {
+          color: $white;
+          font-size: 16px;
         }
       }
     }

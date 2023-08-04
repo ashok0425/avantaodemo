@@ -51,6 +51,7 @@ const Clients = () => {
                 </div>
               </React.Fragment>
             ))}
+            <div className={styles.client_logo}></div>
           </div>
         </div>
       </section>
