@@ -1,8 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Turn as Hamburger } from 'hamburger-react'
 
 import styles from './nav.module.scss'
+import Menu from './Menu'
 
 const NavHeader = () => {
+  const [state, setState] = useState({
+    initial: false,
+    clicked: false
+  })
+
+  const handleMenu = () => {
+    if (state.initial === false) {
+      setState({
+        initial: true,
+        clicked: true
+      })
+    } else if (state.clicked === true) {
+      setState({
+        ...state,
+        clicked: false
+      })
+    } else if (state.clicked === false) {
+      setState({
+        ...state,
+        clicked: !state.clicked
+      })
+    }
+  }
+
+  // console.log(state)
+
   return (
     <>
       <nav className={styles.nav_container}>
@@ -13,7 +41,10 @@ const NavHeader = () => {
             </div>
 
             <div className={styles.ham_menu}>
-              <button type='button'>
+              <button onClick={handleMenu}>
+                <Hamburger distance='sm' duration={0.8} />
+              </button>
+              {/* <button type='button'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='43'
@@ -27,11 +58,12 @@ const NavHeader = () => {
                     fill='#121245'
                   />
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
       </nav>
+      <Menu state={state} />
     </>
   )
 }

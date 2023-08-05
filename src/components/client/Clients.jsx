@@ -8,7 +8,7 @@ const Clients = () => {
     { id: 54845, imgUrl: '/clients/campbellsville.png' },
     { id: 64651, imgUrl: '/clients/insol.png' },
     { id: 64556, imgUrl: '/clients/uni.png' },
-    { id: 89465, imgUrl: '/clients/caremotto.png' },
+    { id: 85558, imgUrl: '/clients/caremotto.png' },
     { id: 89465, imgUrl: '/clients/rorotel.png' },
     { id: 16054, imgUrl: '/clients/dentalcare.png' },
     { id: 55635, imgUrl: '/clients/london.png' }

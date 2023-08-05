@@ -12,6 +12,7 @@ import { useIsomorphicLayoutEffect } from '../../utils/IsomorphicLayout'
 
 const Card = ({ title, description }) => {
   const containerRef = useRef(null)
+  const overlayRef = useRef(null)
 
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -32,6 +33,7 @@ const Card = ({ title, description }) => {
         >
           <div className={styles.product_assets}>
             <div className={styles.product_assets_wrapper}>
+              <div ref={overlayRef} className={styles.overlay} />
               <img
                 src='/images/video.png'
                 alt=''

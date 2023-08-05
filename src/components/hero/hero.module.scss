@@ -1,22 +1,39 @@
 // @import url('@styles/variables.scss');
 
-.hero {
-  height: 100dvh;
+.hero_container {
+  position: relative;
+  background: #fefefe;
 
-  display: flex;
-  align-items: center;
+  .bg_video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    object-fit: contain;
+  }
 
-  .hero_wrapper {
+  .hero {
+    height: 100dvh;
+    width: 100%;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    gap: 70px;
+    align-items: center;
 
-    .hero_heading {
-      & h1 {
-        line-height: 66px;
-        div {
-          span {
-            color: $light-red;
+    .hero_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+
+      .hero_heading {
+        & h1 {
+          line-height: 66px;
+
+          .line {
+            overflow: hidden;
+
+            span {
+              color: $light-red;
+            }
           }
         }
       }
