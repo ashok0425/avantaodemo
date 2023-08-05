@@ -31,6 +31,8 @@ const Menu = ({ state }) => {
         // y: '-100%'
         // display: 'none'
       })
+
+      document.body.classList.remove('nav-active')
     } else if (
       state.clicked === true ||
       (state.clicked === true && state.initial === null)
@@ -52,6 +54,8 @@ const Menu = ({ state }) => {
           delay: 0.15 * index
         })
       })
+
+      document.body.classList.add('nav-active')
     }
   }, [state])
 

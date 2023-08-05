@@ -12,6 +12,14 @@ body {
   overflow-x: hidden;
 }
 
+body.nav-active {
+  .toggle-nav {
+    position: fixed;
+  }
+  // overflow: hidden;
+  // padding-right: 10px;
+}
+
 .container {
   max-width: 1064px;
   width: 100%;

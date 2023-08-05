@@ -18,7 +18,9 @@ const Card = ({ title, description }) => {
     gsap.registerPlugin(ScrollTrigger)
 
     if (typeof window !== 'undefined') {
-      const ctx = gsap.context(() => {})
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline()
+      })
 
       return () => ctx.revert()
     }

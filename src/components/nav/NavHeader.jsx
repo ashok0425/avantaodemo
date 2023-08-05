@@ -11,6 +11,7 @@ const NavHeader = () => {
   })
 
   const handleMenu = () => {
+    const body = document.body
     if (state.initial === false) {
       setState({
         initial: true,
@@ -33,7 +34,7 @@ const NavHeader = () => {
 
   return (
     <>
-      <nav className={styles.nav_container}>
+      <nav className={`toggle-nav ${styles.nav_container}`}>
         <div className='container'>
           <div className={styles.nav_wrapper}>
             <div className={styles.logo}>
