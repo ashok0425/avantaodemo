@@ -45,7 +45,10 @@ const NavHeader = () => {
               <button onClick={handleMenu}>
                 <Hamburger distance='sm' duration={0.8} />
               </button>
-              {/* <button type='button'>
+              {/* <button type='button' onClick={handleMenu}>
+                <div className='line1' />
+                <div className='line2' />
+                <div className='line3' />
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='43'

@@ -7,6 +7,7 @@ import { useIsomorphicLayoutEffect } from '../../utils/IsomorphicLayout'
 
 const Menu = ({ state }) => {
   const menuWrapperRef = useRef(null)
+  const revealRef = useRef(null)
   const labelRef = useRef(null)
 
   const location = useLocation()
@@ -64,6 +65,7 @@ const Menu = ({ state }) => {
   return (
     <>
       <div ref={menuWrapperRef} className={styles.menu}>
+        <div ref={revealRef} className={styles.reveal} />
         <div className={`container ${styles.menu_container}`}>
           <ul className={styles.menu_list}>
             {menuList.map(({ name, link }, index) => (

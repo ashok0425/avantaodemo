@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+// import MouseFollower from 'mouse-follower'
+// import { gsap } from 'gsap'
+import AnimatedCursor from 'react-animated-cursor'
 
 import NavHeader from '@components/nav/NavHeader.jsx'
 
@@ -19,6 +22,19 @@ function App() {
     // return () => s
   }, [])
 
+  // useEffect(() => {
+  //   MouseFollower.registerGSAP(gsap)
+  //   const cursor = new MouseFollower({
+  //     stateDetection: {
+  //       // '-pointer': 'a,button',
+  //       // '-hidden': 'iframe',
+  //       '-lg': 'a button',
+  //       '-exclusion': 'a button'
+  //     }
+  //   })
+  //   return () => cursor.destroy()
+  // }, [])
+
   const loco = async () => {
     const LocomotiveScroll = (await import('locomotive-scroll')).default
     const locomotiveScroll = new LocomotiveScroll()
@@ -34,6 +50,28 @@ function App() {
 
   return (
     <>
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={22}
+        color='193, 11, 111'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+        showSystemCursor={true}
+        clickables={[
+          'a',
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          'label[for]',
+          'select',
+          'textarea',
+          'button',
+          '.link'
+        ]}
+      />
       <NavHeader />
       <Routes>
         <Route path='/' element={<HomePage />} />

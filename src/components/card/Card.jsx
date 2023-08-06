@@ -1,33 +1,112 @@
+'use client'
+
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Button from '../Button'
-import { RightChevron } from '../../assets/Icons'
+import { RightChevron, UpArrow } from '../../assets/Icons'
 
 import styles from './card.module.scss'
-import HeadingFadeIn from '../../utils/HeadingFadeIn'
 import { useIsomorphicLayoutEffect } from '../../utils/IsomorphicLayout'
+import { splitText } from '../../utils/splitText'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Card = ({ title, description }) => {
   const containerRef = useRef(null)
   const overlayRef = useRef(null)
+  const headingRef = useRef(null)
+  const paraRef = useRef(null)
+  const actionRef = useRef(null)
+  const buttonRef = useRef(null)
+  const actionContainrRef = useRef(null)
 
   useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
     if (typeof window !== 'undefined') {
+      // console.log('first')
       const ctx = gsap.context(() => {
-        const tl = gsap.timeline()
+        const headingSplit = splitText(headingRef.current)
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top center',
+            markers: false
+          }
+        })
+
+        gsap.to(overlayRef.current, {
+          height: 0,
+          duration: 1.5,
+          ease: 'power4',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top center',
+            markers: false
+          }
+        })
+
+        tl.from(headingSplit.chars, {
+          y: 100,
+          duration: 1,
+          ease: 'power4',
+          autoAlpha: 0,
+          stagger: 0.03
+        })
+          .from(
+            paraRef.current,
+            {
+              y: 100,
+              autoAlpha: 0,
+              duration: 0.7
+            },
+            '-=0.4'
+          )
+          .from(
+            [actionRef.current, buttonRef.current],
+            {
+              y: 75,
+              autoAlpha: 0,
+              duration: 1,
+              stagger: 0.1,
+              ease: 'power4'
+            },
+            '-=0.4'
+          )
       })
 
       return () => ctx.revert()
     }
   }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    gsap.set(actionContainrRef.current, {
+      y: 100,
+      autoAlpha: 0
+    })
+  }, [])
+
+  const mouseEnter = (e) => {
+    gsap.to(actionContainrRef.current, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.8,
+      ease: 'power4'
+    })
+  }
+
+  const mouseExit = (e) => {
+    gsap.to(actionContainrRef.current, {
+      y: 100,
+      autoAlpha: 0,
+      duration: 0.8,
+      ease: 'power4'
+    })
+  }
   return (
     <>
-      <div ref={containerRef} className={styles.product_grid}>
+      <div className={styles.product_grid}>
         <div
           // data-scroll
           // data-scroll-speed={0.02}
@@ -48,21 +127,30 @@ const Card = ({ title, description }) => {
         <div
           data-scroll
           data-scroll-speed={0.1}
+          ref={containerRef}
           className={styles.product_content}
         >
-          <HeadingFadeIn>
-            <h1>{title}</h1>
-          </HeadingFadeIn>
-          <p>{description}</p>
+          <h1 ref={headingRef}>{title}</h1>
+          <p ref={paraRef}>{description}</p>
           <Link to='/'>
-            <span>
-              <label>Visit now</label>
-              <span>
+            <div
+              className={styles.secondary_btn}
+              onMouseEnter={(e) => mouseEnter(e)}
+              onMouseOut={(e) => mouseExit(e)}
+              ref={actionRef}
+            >
+              <div ref={actionContainrRef} className={styles.hover_action}>
+                <UpArrow className='arrow' />
+              </div>
+              <div>Visit now</div>
+              <div>
                 <RightChevron color='#D22027' />
-              </span>
-            </span>
+              </div>
+            </div>
           </Link>
-          <Button>View all</Button>
+          <div ref={buttonRef}>
+            <Button>View all</Button>
+          </div>
         </div>
       </div>
     </>

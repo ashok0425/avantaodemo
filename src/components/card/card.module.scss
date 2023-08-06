@@ -52,13 +52,13 @@
           position: absolute;
         }
 
-        // .overlay {
-        //   position: absolute;
-        //   width: 100%;
-        //   height: 100%;
-        //   background: #000;
-        //   z-index: 2;
-        // }
+        .overlay {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #000;
+          z-index: 2;
+        }
 
         .product_image {
           width: 100%;
@@ -86,21 +86,42 @@
     // }
 
     & h1 {
-      margin-bottom: 53px;
+      margin-bottom: 40px;
     }
 
     & p,
     a {
-      margin-bottom: 65px;
+      margin-bottom: 55px;
       font-weight: normal;
+      width: fit-content;
     }
 
-    & span {
+    .secondary_btn {
+      position: relative;
       font-size: 26px;
       line-height: 31px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      width: fit-content;
+      background: transparent;
+      // border: none;
+      cursor: pointer !important;
+      pointer-events: all;
+
+      .hover_action {
+        position: absolute;
+        background: $light-red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 50%;
+        color: $white;
+        top: -70px;
+        right: -30px;
+        z-index: -2;
+      }
     }
   }
 

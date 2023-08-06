@@ -43,7 +43,17 @@ const Footer = () => {
     <>
       <footer className={styles.footer_wrapper}>
         <div className={styles.top}>
-          <button>Top</button>
+          <button
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              })
+              // alert('hello')
+            }}
+          >
+            Top
+          </button>
         </div>
         <div className={styles.footer_container}>
           <div className={styles.footer_grid}>
