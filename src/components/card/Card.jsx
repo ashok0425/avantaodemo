@@ -31,6 +31,7 @@ const Card = ({ title, description, index }) => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
+            toggleActions: 'play none none reverse',
             start: 'top center',
             markers: false
           }
@@ -43,12 +44,7 @@ const Card = ({ title, description, index }) => {
           x: index % 2 === 0 ? -100 : 100,
           autoAlpha: 0,
           duration: 1.5,
-          ease: 'power4',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top center',
-            markers: false
-          }
+          ease: 'power4'
         })
           .from(
             headingSplit.chars,
@@ -57,9 +53,9 @@ const Card = ({ title, description, index }) => {
               duration: 1,
               ease: 'power4',
               autoAlpha: 0,
-              stagger: 0.03
+              stagger: 0.01
             },
-            '-=0.2'
+            0
           )
           .from(
             paraRef.current,
@@ -68,7 +64,7 @@ const Card = ({ title, description, index }) => {
               autoAlpha: 0,
               duration: 0.7
             },
-            '-=0.3'
+            '-=1'
           )
           .from(
             [actionRef.current, buttonRef.current],
@@ -94,31 +90,28 @@ const Card = ({ title, description, index }) => {
   //   })
   // }, [])
 
-  const mouseEnter = (e) => {
-    gsap.to(actionContainrRef.current, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.8,
-      ease: 'power4'
-    })
-  }
+  //   const mouseEnter = (e) => {
+  //     gsap.to(actionContainrRef.current, {
+  //       y: 0,
+  //       autoAlpha: 1,
+  //       duration: 0.8,
+  //       ease: 'power4'
+  //     })
+  //   }
+  //
+  //   const mouseExit = (e) => {
+  //     gsap.to(actionContainrRef.current, {
+  //       y: 100,
+  //       autoAlpha: 0,
+  //       duration: 0.8,
+  //       ease: 'power4'
+  //     })
+  //   }
 
-  const mouseExit = (e) => {
-    gsap.to(actionContainrRef.current, {
-      y: 100,
-      autoAlpha: 0,
-      duration: 0.8,
-      ease: 'power4'
-    })
-  }
   return (
     <>
-      <div className={styles.product_grid}>
-        <div
-          // data-scroll
-          // data-scroll-speed={0.02}
-          className={styles.product_thumb}
-        >
+      <div ref={containerRef} className={styles.product_grid}>
+        <div className={styles.product_thumb}>
           <div className={styles.product_assets}>
             <div ref={imgRef} className={styles.product_assets_wrapper}>
               <img
@@ -133,25 +126,17 @@ const Card = ({ title, description, index }) => {
         <div
           data-scroll
           data-scroll-speed={0.1}
-          ref={containerRef}
           className={styles.product_content}
         >
           <h1 ref={headingRef}>{title}</h1>
           <p ref={paraRef}>{description}</p>
           <Link to='/'>
-            <div
-              className={styles.secondary_btn}
-              // onMouseEnter={(e) => mouseEnter(e)}
-              // onMouseOut={(e) => mouseExit(e)}
-              ref={actionRef}
-            >
+            <div ref={actionRef} className={styles.secondary_btn}>
               <div ref={actionContainrRef} className={styles.hover_action}>
-                <UpArrow className='arrow' />
+                <RightChevron color='#fff' />
               </div>
               <div>Visit now</div>
-              <div>
-                <RightChevron color='#D22027' />
-              </div>
+              <RightChevron color='#D22027' />
             </div>
           </Link>
           <div ref={buttonRef}>

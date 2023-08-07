@@ -24,7 +24,7 @@ const HeadingFadeIn = ({ children, wordClass = '' }) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: componentRef.current,
-          toggleActions: 'play none none reset',
+          toggleActions: 'play none none reverse',
           start: 'top center+=150px',
           end: '100% top',
           markers: false
