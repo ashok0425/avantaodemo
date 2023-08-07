@@ -30,9 +30,9 @@ const ProductsSection = () => {
       </div>
 
       <div className={styles.products_wrapper}>
-        {data.map(({ id, title, description }) => (
+        {data.map(({ id, title, description }, index) => (
           <React.Fragment key={id}>
-            <Card title={title} description={description} />
+            <Card title={title} description={description} index={index} />
           </React.Fragment>
         ))}
       </div>

@@ -14,9 +14,9 @@ import { splitText } from '../../utils/splitText'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Card = ({ title, description }) => {
+const Card = ({ title, description, index }) => {
   const containerRef = useRef(null)
-  const overlayRef = useRef(null)
+  const imgRef = useRef(null)
   const headingRef = useRef(null)
   const paraRef = useRef(null)
   const actionRef = useRef(null)
@@ -36,8 +36,12 @@ const Card = ({ title, description }) => {
           }
         })
 
-        gsap.to(overlayRef.current, {
-          height: 0,
+        gsap.to
+
+        tl.from(imgRef.current, {
+          // height: 0,
+          x: index % 2 === 0 ? -100 : 100,
+          autoAlpha: 0,
           duration: 1.5,
           ease: 'power4',
           scrollTrigger: {
@@ -46,14 +50,17 @@ const Card = ({ title, description }) => {
             markers: false
           }
         })
-
-        tl.from(headingSplit.chars, {
-          y: 100,
-          duration: 1,
-          ease: 'power4',
-          autoAlpha: 0,
-          stagger: 0.03
-        })
+          .from(
+            headingSplit.chars,
+            {
+              y: 100,
+              duration: 1,
+              ease: 'power4',
+              autoAlpha: 0,
+              stagger: 0.03
+            },
+            '-=0.2'
+          )
           .from(
             paraRef.current,
             {
@@ -61,7 +68,7 @@ const Card = ({ title, description }) => {
               autoAlpha: 0,
               duration: 0.7
             },
-            '-=0.4'
+            '-=0.3'
           )
           .from(
             [actionRef.current, buttonRef.current],
@@ -113,8 +120,7 @@ const Card = ({ title, description }) => {
           className={styles.product_thumb}
         >
           <div className={styles.product_assets}>
-            <div className={styles.product_assets_wrapper}>
-              <div ref={overlayRef} className={styles.overlay} />
+            <div ref={imgRef} className={styles.product_assets_wrapper}>
               <img
                 src='/images/video.png'
                 alt=''

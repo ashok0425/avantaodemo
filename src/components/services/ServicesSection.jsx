@@ -30,9 +30,9 @@ const ServicesSection = () => {
         </div>
 
         <div className={styles.services_wrapper}>
-          {data.map(({ id, title, description }) => (
+          {data.map(({ id, title, description }, index) => (
             <React.Fragment key={`${title}-${id}`}>
-              <Card title={title} description={description} />
+              <Card title={title} description={description} index={index} />
             </React.Fragment>
           ))}
         </div>
