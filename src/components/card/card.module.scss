@@ -109,6 +109,11 @@
       cursor: pointer !important;
       pointer-events: all;
 
+      &:hover .hover_action {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
       .hover_action {
         position: absolute;
         background: $light-red;
@@ -121,6 +126,9 @@
         top: -70px;
         right: -30px;
         z-index: -2;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: ease 400ms;
       }
     }
   }

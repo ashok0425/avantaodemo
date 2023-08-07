@@ -80,12 +80,12 @@ const Card = ({ title, description }) => {
     }
   }, [])
 
-  useIsomorphicLayoutEffect(() => {
-    gsap.set(actionContainrRef.current, {
-      y: 100,
-      autoAlpha: 0
-    })
-  }, [])
+  // useIsomorphicLayoutEffect(() => {
+  //   gsap.set(actionContainrRef.current, {
+  //     y: 100,
+  //     autoAlpha: 0
+  //   })
+  // }, [])
 
   const mouseEnter = (e) => {
     gsap.to(actionContainrRef.current, {
@@ -135,8 +135,8 @@ const Card = ({ title, description }) => {
           <Link to='/'>
             <div
               className={styles.secondary_btn}
-              onMouseEnter={(e) => mouseEnter(e)}
-              onMouseOut={(e) => mouseExit(e)}
+              // onMouseEnter={(e) => mouseEnter(e)}
+              // onMouseOut={(e) => mouseExit(e)}
               ref={actionRef}
             >
               <div ref={actionContainrRef} className={styles.hover_action}>
