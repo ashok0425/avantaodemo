@@ -155,3 +155,12 @@ video {
     width: 35px !important;
   }
 }
+
+.heading-line {
+  height: fit-content;
+
+  .heading-char {
+    // border: 1px solid red;
+    line-height: 50px;
+  }
+}

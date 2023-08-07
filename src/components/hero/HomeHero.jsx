@@ -14,18 +14,16 @@ const HomeHero = () => {
   useIsomorphicLayoutEffect(() => {
     const heading = SplitType.create(headingRef.current, {
       // types: 'words, chars',
-      wordClass: 'heading-word'
-    })
-    const heading2 = SplitType.create(heading2Ref.current, {
-      // types: 'words, chars',
-      wordClass: 'heading-word'
+      wordClass: 'heading-word',
+      lineClass: 'heading-line',
+      charClass: 'heading-char'
     })
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         delay: 0.5
       })
-      tl.from([heading.lines, heading2.lines], {
+      tl.from(heading.lines, {
         y: 70,
         autoAlpha: 0,
         duration: 1,
@@ -45,6 +43,37 @@ const HomeHero = () => {
 
     return () => ctx.revert()
   }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    const heading2 = SplitType.create(heading2Ref.current, {
+      // types: 'words, chars',
+      lineClass: 'heading-line',
+      wordClass: 'heading-word',
+      charClass: 'heading-char'
+    })
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        delay: 1
+      })
+
+      gsap.set(heading2.chars, {
+        autoAlpha: 0
+      })
+
+      gsap.to(heading2.chars, {
+        autoAlpha: 1,
+        duration: 2,
+        stagger: 0.5,
+        delay: 1,
+        yoyo: true,
+        repeat: -1,
+        ease: 'power4'
+      })
+    })
+
+    return () => ctx.revert()
+  })
   return (
     <>
       <section className={styles.hero_container}>
@@ -69,14 +98,18 @@ const HomeHero = () => {
                 >
                   Welcome to Avantao Technologies
                 </div>
-                <div
+
+<div className={styles.line1}>
+<span>a</span>
+                <span
                   data-scroll
                   data-scroll-speed={0.01}
                   ref={heading2Ref}
-                  className={styles.line}
+                  className={`${styles.line}`}
                 >
-                  <span>a</span> <span className={styles.typewriter}>utomated</span>
-                </div>
+                  utomated
+                </span>
+</div>
               </h1>
             </div>
 

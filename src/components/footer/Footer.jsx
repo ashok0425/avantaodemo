@@ -2,6 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './footer.module.scss'
+import {
+  FaceBook,
+  Instagram,
+  LinkedIn,
+  Twitter,
+  YouTube
+} from '../../assets/Icons'
 
 const Footer = () => {
   const footerData = {
@@ -93,16 +100,20 @@ const Footer = () => {
                   </a>
                 </div>
                 <div className={styles.call}>
-                  <h4>Email us</h4>
+                  <h4>Call us</h4>
                   <a href='mailto:support@accessque.com'>
-                    support@accessque.com
+                    +44-7767114713, +91-9902587664
                   </a>
                 </div>
                 <div className={styles.social_media}>
-                  <h4>Email us</h4>
-                  <a href='mailto:support@accessque.com'>
-                    support@accessque.com
-                  </a>
+                  <h4>Social media</h4>
+                  <div className={styles.social_wrapper}>
+                    <FaceBook />
+                    <Twitter />
+                    <Instagram />
+                    <YouTube />
+                    <LinkedIn />
+                  </div>
                 </div>
               </div>
             </div>

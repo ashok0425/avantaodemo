@@ -45,16 +45,40 @@
       padding-top: 127px;
       padding-bottom: 85px;
       display: grid;
-      grid-template-columns: 1fr 1fr 3fr;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: auto;
+      // grid-template-columns: 1fr 1fr 3fr;
+
+      @media (max-width: 940px) {
+        row-gap: 20px;
+        grid-template-columns: repeat(6, 1fr);
+      }
 
       .logo {
         width: 130px;
         height: 33px;
+        grid-area: span 2 / span 2;
+
+        @media (max-width: 940px) {
+          grid-area: span 6 / span 6 / span 6;
+        }
       }
 
       .quick_links {
+        grid-area: span 2 / span 2;
+
+        @media (max-width: 940px) {
+          grid-area: span 6 / span 6 / span 6;
+        }
+
         & ul {
           list-style: none;
+
+          @media (max-width: 940px) {
+            display: flex;
+            column-gap: 2rem;
+            flex-wrap: wrap;
+          }
 
           & li {
             color: $white;
@@ -67,6 +91,7 @@
       }
 
       .company_detail {
+        grid-area: span 6 / span 6;
         .locations {
           & h4 {
             color: $white;
@@ -80,6 +105,10 @@
             grid-template-columns: repeat(2, 1fr);
             column-gap: 66px;
             row-gap: 30px;
+
+            @media (max-width: 640px) {
+              grid-template-columns: repeat(1, 1fr);
+            }
 
             .location_detail {
               color: $white;
@@ -107,6 +136,10 @@
           column-gap: 66px;
           row-gap: 30px;
 
+          @media (max-width: 640px) {
+            grid-template-columns: repeat(1, 1fr);
+          }
+
           .email,
           .call,
           .social_media {
@@ -120,6 +153,14 @@
               margin-top: 6px;
             }
           }
+
+          .social_media {
+            .social_wrapper {
+              margin-top: 15px;
+              display: flex;
+              gap: 11px;
+            }
+          }
         }
       }
     }
@@ -128,6 +169,12 @@
       padding-bottom: 34px;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
+
+      @media (max-width: 940px) {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 1rem;
+        justify-content: center;
+      }
 
       .extra_links {
         grid-area: span 2 / span 2;
