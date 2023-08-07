@@ -75,7 +75,7 @@ const HomeHero = () => {
                   ref={heading2Ref}
                   className={styles.line}
                 >
-                  <span>a</span>tomated
+                  <span>a</span> <span className={styles.typewriter}>utomated</span>
                 </div>
               </h1>
             </div>
