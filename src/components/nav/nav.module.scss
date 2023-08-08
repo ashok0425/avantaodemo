@@ -79,6 +79,7 @@
 
         & :hover .inner {
           transform: translateY(-100%);
+          color: $dark-red;
         }
 
         & a {
@@ -96,7 +97,7 @@
         }
 
         & a:not([data-active='active']) {
-          opacity: 0.5;
+          // opacity: 0.5;
         }
 
         & a[data-active='active'] {
