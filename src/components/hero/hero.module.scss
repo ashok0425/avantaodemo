@@ -30,16 +30,7 @@
           font-weight: 600;
 
           .line {
-            // position: relative;
-            // top: 50%;
-            // width: 24em;
-            // margin: 0 auto;
-            // border-right: 2px solid rgba(75, 75, 75, 0.75);
-            // // font-size: 180%;
-            // // text-align: center;
-            // white-space: nowrap;
             overflow: hidden;
-            // transform: translateY(-50%);
               color: $off-black;
             & span {
               color: $light-red !important;
@@ -55,5 +46,25 @@
   display: flex;
   align-items: self-start;
   color: $dark-red;
-  // margin-top: ;
+  font-size:40px ;
+  font-weight: 600;
+}
+
+
+.anim_typewriter{
+  width: 180px;
+  border-right: 2px solid $dark-red;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $off-black;
+animation: typewriter 4s steps(44)  infinite  alternate,
+           blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+from{width: 0;}
+to{width: 180px;}
+}
+@keyframes blinkTextCursor{
+from{border-right-color: $dark-red;}
+to{border-right-color: transparent;}
 }

@@ -44,36 +44,7 @@ const HomeHero = () => {
     return () => ctx.revert()
   }, [])
 
-  useIsomorphicLayoutEffect(() => {
-    const heading2 = SplitType.create(heading2Ref.current, {
-      // types: 'words, chars',
-      lineClass: 'heading-line',
-      wordClass: 'heading-word',
-      charClass: 'heading-char'
-    })
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        delay: 1
-      })
-
-      gsap.set(heading2.chars, {
-        autoAlpha: 0
-      })
-
-      gsap.to(heading2.chars, {
-        autoAlpha: 1,
-        duration: 2,
-        stagger: 0.5,
-        delay: 1,
-        yoyo: true,
-        repeat: -1,
-        ease: 'power4'
-      })
-    })
-
-    return () => ctx.revert()
-  })
+  
   return (
     <>
       <section className={styles.hero_container}>
@@ -98,19 +69,18 @@ const HomeHero = () => {
                 >
                   Welcome to Avantao Technologies
                 </div>
+                </h1>
 
 <div className={styles.line1}>
 <span>a</span>
                 <span
                   data-scroll
                   data-scroll-speed={0.01}
-                  ref={heading2Ref}
-                  className={`${styles.line}`}
+                  className={`${styles.anim_typewriter}`}
                 >
                   utomated
                 </span>
 </div>
-              </h1>
             </div>
 
             <div ref={buttonRef}>
